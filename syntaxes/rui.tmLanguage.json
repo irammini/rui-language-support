@@ -10,6 +10,7 @@
     {"include": "#keywords"},
     {"include": "#constants"},
     {"include": "#operators"},
+    {"include": "#fstrings"},
     {"include": "#strings"},
     {"include": "#numbers"},
     {"include": "#calls"}
@@ -17,6 +18,18 @@
   "repository": {
     "comments": {
       "patterns": [
+        {
+          "name": "comment.block.rui",
+          "begin": "(;;\\*)",
+          "beginCaptures": {
+            "1": { "name": "comment.block.rui" }
+          },
+          "end": "(\\*;;)",
+          "endCaptures": {
+            "1": { "name": "comment.block.rui" }
+          },
+          "contentName": "comment.block.rui"
+        },
         {
           "name": "comment.line.semicolon.rui",
           "match": ";;.*"
@@ -27,7 +40,7 @@
       "patterns": [
         {
           "name": "keyword.control.rui",
-          "match": "\\b(if|else|while|for|in|exit|break|continue|try|catch|finally|spawn|defer)\\b"
+          "match": "\\b(if|else|when|while|for|in|exit|break|continue|try|catch|finally|spawn|defer)\\b"
         },
         {
           "name": "storage.type.function.rui",
@@ -92,6 +105,18 @@
         {
           "name": "punctuation.accessor.dot.rui",
           "match": "\\."
+        },
+        {
+          "name": "punctuation.parenthesis.rui",
+          "match": "\\(|\\)"
+        },
+        {
+          "name": "punctuation.bracket.rui",
+          "match": "\\[|\\]"
+        },
+        {
+          "name": "punctuation.brace.rui",
+          "match": "\\{|\\}"
         }
       ]
     },
@@ -104,6 +129,46 @@
           "name": "constant.character.escape.rui",
           "match": "\\\\."
         }
+      ]
+    },
+    "fstrings": {
+      "name": "string.interpolated.rui",
+      "begin": "f\"",
+      "end": "\"",
+      "patterns": [
+        {
+          "name": "constant.character.escape.rui",
+          "match": "\\\\."
+        },
+        {
+          "include": "#fstring-interpolation"
+        }
+      ]
+    },
+    "fstring-interpolation": {
+      "name": "meta.embedded.line.rui",
+      "begin": "\\$\\{",
+      "end": "\\}",
+      "captures": {
+        "0": {
+          "name": "variable.interpolation.rui"
+        },
+        "1": {
+          "name": "punctuation.section.embedded.begin.rui"
+        },
+        "3": {
+          "name": "punctuation.section.embedded.end.rui"
+        }
+      },
+      "patterns": [
+        {"include": "#comments"},
+        {"include": "#keywords"},
+        {"include": "#constants"},
+        {"include": "#operators"},
+        {"include": "#fstrings"},
+        {"include": "#strings"},
+        {"include": "#numbers"},
+        {"include": "#calls"}
       ]
     },
     "numbers": {

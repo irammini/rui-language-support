@@ -3,7 +3,7 @@
   "name": "rui-language-support",
   "displayName": "Teaser RUI language support",
   "description": "Syntax highlight helper for Teaser RUI",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "repository": "https://github.com/irammini/rui-language-support",
   "license": "MIT",
   "author": {
