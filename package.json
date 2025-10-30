@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json.schemastore.org/package.json",
+  "name": "rui-language-support",
+  "displayName": "Teaser RUI language support",
+  "description": "Syntax highlight helper for Teaser RUI",
+  "version": "0.0.3",
+  "engines": {
+    "vscode": "^1.105.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "rui",
+        "aliases": [
+          "Teaser RUI",
+          "rui"
+        ],
+        "extensions": [
+          ".rui"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "rui",
+        "scopeName": "source.rui",
+        "path": "./syntaxes/rui.tmLanguage.json"
+      }
+    ]
+  }
+}
