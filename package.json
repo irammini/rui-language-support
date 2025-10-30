@@ -4,6 +4,13 @@
   "displayName": "Teaser RUI language support",
   "description": "Syntax highlight helper for Teaser RUI",
   "version": "0.0.3",
+  "repository": "https://github.com/irammini/rui-language-support",
+  "license": "MIT",
+  "author": {
+    "name": "Teaserverse",
+    "email": "contact@teaserverse.online",
+    "url": "https://teaserverse.online"
+  },
   "engines": {
     "vscode": "^1.105.0"
   },
